@@ -153,7 +153,6 @@ const MainDoc = React.memo(({ handleReset }) => {
   const [showChart, setShowChart] = useState(false);
   const [dayVal, setDayVal] = useState([]);
   const [times, setTimes] = useState(initTimes);
-  const [labels, setLabels] = useState([]);
 
   const [records, setRecords] = useState(initRecords);
 
@@ -270,7 +269,6 @@ const MainDoc = React.memo(({ handleReset }) => {
     });
 
     setCharts(alignedCharts);
-    setLabels(alignedCharts[0].data.labels);
     setOneChart(alignedCharts.find((item) => item.label === selectedDate));
     if (!isEmpty(alignedCharts) && selectedChart === "allDays") {
       setChart(alignedCharts);
@@ -339,7 +337,6 @@ const MainDoc = React.memo(({ handleReset }) => {
           });
         });
         setCharts(tmpCharts);
-        setLabels(tmpCharts[0].data.labels);
         setListDay(Object.keys(groupBy(tmpCharts, "label")));
       }
     });
