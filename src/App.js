@@ -231,7 +231,7 @@ const MainDoc = React.memo(({ handleReset }) => {
     }
 
     const alignedCharts = [];
-
+    console.log(selectedDateTime);
     alignedArr.map((row) => {
       const tmpArr = [];
       for (let idx = 0; idx < row[1].length; idx++) {
@@ -246,8 +246,12 @@ const MainDoc = React.memo(({ handleReset }) => {
         label: row[0],
         data: {
           labels: new Array(1440).fill(0).map((_, i) => {
-            let h = Math.trunc(selectedDateTime / 60) + Math.trunc(i / 60);
-            h = h >= 24 ? h - 24 : h;
+            let h =
+              Math.trunc(selectedDateTime / 60) +
+              Math.trunc((i + (selectedDateTime % 60)) / 60);
+            while (h >= 24) {
+              h -= 24;
+            }
             const m =
               ((selectedDateTime % 60) + i) % 60 < 10
                 ? `0${((selectedDateTime % 60) + i) % 60}`

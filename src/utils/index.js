@@ -14,12 +14,7 @@ export const getIDietBgColor = (iDiet = 0) => {
 };
 
 export const getDietContent = (dayVal, startTime, endTime) => {
-  if (
-    isEmpty(dayVal) ||
-    isEmpty(startTime) ||
-    isEmpty(endTime) ||
-    startTime > endTime
-  ) {
+  if (isEmpty(dayVal) || isEmpty(startTime) || isEmpty(endTime)) {
     return "";
   }
 
@@ -49,12 +44,7 @@ export const getTimeText = (startTime = "", endTime = "") => {
 };
 
 export const getRangeArr = (dayVal, startTime, endTime) => {
-  if (
-    isEmpty(dayVal) ||
-    isEmpty(startTime) ||
-    isEmpty(endTime) ||
-    startTime > endTime
-  ) {
+  if (isEmpty(dayVal) || isEmpty(startTime) || isEmpty(endTime)) {
     return;
   }
   return dayVal?.slice(

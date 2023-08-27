@@ -30,7 +30,9 @@ const AssignTable = ({
           onChange={handleDate}
         >
           {listDay.map((val) => (
-            <MenuItem value={val}>{val}</MenuItem>
+            <MenuItem key={val} value={val}>
+              {val}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
